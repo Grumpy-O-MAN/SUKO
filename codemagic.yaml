@@ -1,0 +1,12 @@
+workflows:
+  build_and_test:
+    name: Build and Test Suko App
+    platform: ios
+    instance_type: xcodebuild-latest-macos  # Adjust based on available options
+    scripts:
+      - checkout
+      - |  # Fetch CocoaPods dependencies (if using)
+        sudo gem install cocoapods
+        pod install
+      - build # This will trigger the build process using Xcodebuild
+      - test  # This will trigger the test process using Xcodebuild
